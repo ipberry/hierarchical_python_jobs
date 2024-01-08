@@ -61,7 +61,7 @@ def apnet_disco_dataset(
         matches=matches,
     )
     # query = [7916 ]
-
+    query= [query[0]]
     hrcl.parallel.ms_sl_extra_info(
         id_list=query,
         db_path=db_path,

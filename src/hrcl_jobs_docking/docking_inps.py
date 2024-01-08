@@ -170,12 +170,13 @@ def get_com(pdbqt_file):
 
 
 def prepare_ligand4(ligand_filename, outputfilename):
-    cmd = f"python3 ~/data/gits/apnet_docking/docking_practice/MGLToolsPckgsPy3/prepare_ligand4.py -l ligand_filename -o outputfilename"
+    cmd = f"/usr/bin/python ~/data/gits/vina_docking/prepare_ligand4.py -l {ligand_filename} -o {outputfilename}"
     out = subprocess.run(cmd, shell=True, check=True)
 
 
 def prepare_receptor4(receptor_filename, outputfilename):
-    cmd = f"python3 ~/data/gits/apnet_docking/docking_practice/MGLToolsPckgsPy3/prepare_receptor4.py -r receptor_filename -o outputfilename"
+    cmd = f"/usr/bin/python ~/data/gits/vina_docking/prepare_receptor4.py r {receptor_filename} -o {outputfilename}"
+    print(receptor_filename)
     out = subprocess.run(cmd, shell=True, check=True)
 
 
@@ -211,6 +212,7 @@ def run_autodock_vina(js: jobspec.autodock_vina_disco_js) -> []:
         sf_name = js.extra_info["sf_name"]
         v = Vina(sf_name=sf_name)
         PRO_PDBQT = js.PRO_PDB + "qt"
+        print(PRO_PDBQT)
         LIG_PDBQT = js.LIG_PDB + "qt"
         WAT_PDBQT = js.WAT_PDB + "qt"
         OTH_PDBQT = js.OTH_PDB + "qt"
